@@ -1,0 +1,167 @@
+{
+  "version": "1.0",
+  "agents": {
+    "orchestrator": {
+      "description": "Master coordinator for multi-agent development system",
+      "template": "orchestrator.md",
+      "capabilities": [
+        "project_management",
+        "agent_deployment",
+        "resource_allocation",
+        "quality_oversight"
+      ],
+      "max_instances": 1,
+      "requires_human_approval": false
+    },
+    "prd_agent": {
+      "description": "Converts vague ideas into detailed specifications",
+      "template": "prd_agent.md",
+      "capabilities": [
+        "requirement_analysis",
+        "specification_writing",
+        "stakeholder_communication",
+        "scope_definition"
+      ],
+      "max_instances": 3,
+      "requires_human_approval": false,
+      "temporary": true
+    },
+    "project_manager": {
+      "description": "Maintains quality standards and coordinates team",
+      "template": "project_manager.md",
+      "capabilities": [
+        "task_assignment",
+        "progress_tracking",
+        "quality_enforcement",
+        "team_coordination"
+      ],
+      "max_instances": 5,
+      "requires_human_approval": false
+    },
+    "engineer": {
+      "description": "Implements features and fixes bugs",
+      "template": "engineer.md",
+      "capabilities": [
+        "code_implementation",
+        "bug_fixing",
+        "testing",
+        "documentation"
+      ],
+      "specializations": [
+        "frontend",
+        "backend",
+        "fullstack",
+        "devops",
+        "mobile"
+      ],
+      "max_instances": 10,
+      "requires_human_approval": false
+    },
+    "ux_ui_expert": {
+      "description": "Designs intuitive and accessible interfaces",
+      "template": "ux_ui_expert.md",
+      "capabilities": [
+        "ui_design",
+        "ux_research",
+        "accessibility",
+        "design_systems"
+      ],
+      "max_instances": 3,
+      "requires_human_approval": false
+    },
+    "supabase_expert": {
+      "description": "Database architecture and Supabase specialist",
+      "template": "supabase_expert.md",
+      "capabilities": [
+        "database_design",
+        "security_policies",
+        "performance_optimization",
+        "realtime_features"
+      ],
+      "max_instances": 2,
+      "requires_human_approval": false
+    },
+    "qa_tester": {
+      "description": "Ensures quality through comprehensive testing",
+      "template": "qa_tester.md",
+      "capabilities": [
+        "test_automation",
+        "bug_detection",
+        "performance_testing",
+        "security_testing"
+      ],
+      "max_instances": 5,
+      "requires_human_approval": false
+    },
+    "code_reviewer": {
+      "description": "Maintains code quality and security standards",
+      "template": "code_reviewer.md",
+      "capabilities": [
+        "security_review",
+        "performance_review",
+        "best_practices",
+        "technical_debt_identification"
+      ],
+      "max_instances": 3,
+      "requires_human_approval": false
+    },
+    "documentation": {
+      "description": "Creates and maintains comprehensive documentation",
+      "template": "documentation.md",
+      "capabilities": [
+        "api_documentation",
+        "user_guides",
+        "technical_writing",
+        "diagram_creation"
+      ],
+      "max_instances": 2,
+      "requires_human_approval": false
+    }
+  },
+  "team_compositions": {
+    "small": {
+      "description": "Minimal team for simple projects",
+      "agents": [
+        {"role": "project_manager", "count": 1},
+        {"role": "engineer", "count": 1}
+      ]
+    },
+    "medium": {
+      "description": "Standard team for most projects",
+      "agents": [
+        {"role": "project_manager", "count": 1},
+        {"role": "engineer", "count": 2},
+        {"role": "qa_tester", "count": 1}
+      ]
+    },
+    "large": {
+      "description": "Full team for complex projects",
+      "agents": [
+        {"role": "project_manager", "count": 1},
+        {"role": "engineer", "count": 3, "specializations": ["frontend", "backend", "fullstack"]},
+        {"role": "qa_tester", "count": 1},
+        {"role": "code_reviewer", "count": 1}
+      ]
+    },
+    "enterprise": {
+      "description": "Complete team with all specialists",
+      "agents": [
+        {"role": "project_manager", "count": 1},
+        {"role": "engineer", "count": 4, "specializations": ["frontend", "backend", "devops", "mobile"]},
+        {"role": "ux_ui_expert", "count": 1},
+        {"role": "supabase_expert", "count": 1},
+        {"role": "qa_tester", "count": 2},
+        {"role": "code_reviewer", "count": 1},
+        {"role": "documentation", "count": 1}
+      ]
+    }
+  },
+  "deployment_rules": {
+    "max_agents_per_session": 10,
+    "max_total_agents": 50,
+    "require_prd_first": true,
+    "auto_scale_enabled": false,
+    "health_check_interval": 15,
+    "idle_timeout_minutes": 120
+  }
+}
